@@ -11,29 +11,13 @@ int main()
 	SetConsoleOutputCP(1251);
 	//Курсы валют
 	//USD
-	double USD[4]{ 1, 3.22, 0.93, 92.5 };
-	const double USD_USD = 1;		 //$
-	const double USD_BYN = 3.22;     //bel rub
-	const double USD_EUR = 0.93;	 //euro
-	const double USD_RUB = 92.5;	 //rus rub
+	double USD[4]{ 1, 3.22, 0.93, 92.5 }; //$, bel rub, euro, rus rub.
 	//BYN
-	double BYN[4]{ 0.32, 1, 0.28, 27.79 };
-	const double BYN_USD = 0.32;	 //$
-	const double BYN_BYN = 1;		 //bel rub
-	const double BYN_EUR = 0.28;     //euro
-	const double BYN_RUB = 27.79;    //rus rub
+	double BYN[4]{ 0.32, 1, 0.28, 27.79 }; //$, bel rub, euro, rus rub.
 	//EUR
-	double EUR[4]{ 1.09, 3.52, 1, 99.5 };
-	const double EUR_USD = 1.09;	 //$
-	const double EUR_BYN = 3.52;	 //bel rub
-	const double EUR_EUR = 1;		 //euro
-	const double EUR_RUB = 99.5;	 //rus rub
+	double EUR[4]{ 1.09, 3.52, 1, 99.5 }; //$, bel rub, euro, rus rub.
 	//RUB
-	double RUB[4]{ 0.011, 0.036, 0.01, 1 };
-	const double RUB_USD = 0.011;	 //$
-	const double RUB_BYN = 0.036;	 //bel rub
-	const double RUB_EUR = 0.01;	 //euro
-	const double RUB_RUB = 1;		 //rus rub
+	double RUB[4]{ 0.011, 0.036, 0.01, 1 }; //$, bel rub, euro, rus rub.
 
 	bool choice = true;
 	while (choice == true) {
@@ -50,7 +34,9 @@ int main()
 		int new_currency_choice = 0;
 		cin >> new_currency_choice;
 
+
 		//Нахождение нужного курса
+		string kind_of_currency = "";
 		double rate = 0;
 		for (int i = 0; i < old_currency_choice; i++) {
 			//USD
@@ -71,6 +57,20 @@ int main()
 			}
 		}
 
+		//Тип выводимой валюты
+		if (new_currency_choice == 1) {
+			kind_of_currency = "Долларов США.";
+		}
+		else if (new_currency_choice == 2) {
+			kind_of_currency = "Белорусских рублей.";
+		}
+		else if (new_currency_choice == 3) {
+			kind_of_currency = "Евро.";
+		}
+		else if (new_currency_choice == 4) {
+			kind_of_currency = "Российских рублей.";
+		}
+
 		//Ввод количества обмениваемой валюты
 		cout << "Введите количество обмениваемой валюты: ";
 		double amount_old_value = 0;
@@ -79,7 +79,7 @@ int main()
 		//Перевод валюты
 		double value = 0;
 		value = amount_old_value * rate;
-		cout << "Результат перевода: " << value << endl;
+		cout << "Результат перевода: " << value << " " << kind_of_currency << endl;
 
 		//Перезапуск программы
 		cout << endl << "Хотите продолжить?" << endl;
