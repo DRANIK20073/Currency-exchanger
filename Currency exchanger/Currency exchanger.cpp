@@ -81,11 +81,21 @@ int main()
 		value = amount_old_value * rate;
 		cout << "Результат перевода: " << value << endl;
 
-		//Перезапуск
+		//Перезапуск программы
 		cout << endl << "Хотите продолжить?" << endl;
-		cin >> choice;
-		if (choice == false) {
+		cout << "Введите да или нет: ";
+		string choice_str = "да";
+		cin >> choice_str;
+		if (choice_str == "да") {
+			choice = true;
+		}
+		else if (choice_str == "нет") {
+			choice = false;
 			cout << "Спасибо за использование нашего обменника!" << endl;
+		}
+		else {
+			choice = false;
+			cout << "Вы ввели неправильное значение." << endl;
 		}
 	}
 
