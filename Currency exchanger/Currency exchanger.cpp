@@ -36,50 +36,55 @@ int main()
 
 
 		//Нахождение нужного курса
-		string kind_of_currency = "";
+		string old_kind_of_currency = "";
+		string new_kind_of_currency = "";
 		double rate = 0;
 		for (int i = 0; i < old_currency_choice; i++) {
 			//USD
 			if (old_currency_choice == 1) {
 				rate = USD[new_currency_choice - 1];
+				old_kind_of_currency = "Долларов США";
 			}
 			//BYN
 			if (old_currency_choice == 2) {
 				rate = BYN[new_currency_choice - 1];
+				old_kind_of_currency = "Белорусских рублей";
 			}
 			//EUR
 			if (old_currency_choice == 3) {
 				rate = EUR[new_currency_choice - 1];
+				old_kind_of_currency = "Евро";
 			}
 			//RUB
 			if (old_currency_choice == 4) {
 				rate = RUB[new_currency_choice - 1];
+				old_kind_of_currency = "Российских рублей";
 			}
 		}
 
 		//Тип выводимой валюты
 		if (new_currency_choice == 1) {
-			kind_of_currency = "Долларов США.";
+			new_kind_of_currency = "Долларов США.";
 		}
 		else if (new_currency_choice == 2) {
-			kind_of_currency = "Белорусских рублей.";
+			new_kind_of_currency = "Белорусских рублей.";
 		}
 		else if (new_currency_choice == 3) {
-			kind_of_currency = "Евро.";
+			new_kind_of_currency = "Евро.";
 		}
 		else if (new_currency_choice == 4) {
-			kind_of_currency = "Российских рублей.";
+			new_kind_of_currency = "Российских рублей.";
 		}
 
 		//Ввод количества обмениваемой валюты
-		cout << "Введите количество обмениваемой валюты: ";
+		cout << "Введите количество " << old_kind_of_currency << ", которое хотите обменять : ";
 		double amount_old_value = 0;
 		cin >> amount_old_value;
 
 		//Перевод валюты
 		double value = 0;
 		value = amount_old_value * rate;
-		cout << "Результат перевода: " << value << " " << kind_of_currency << endl;
+		cout << "Результат перевода: " << value << " " << new_kind_of_currency << endl;
 
 		//Перезапуск программы
 		cout << endl << "Хотите продолжить?" << endl;
