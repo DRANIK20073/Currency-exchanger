@@ -37,44 +37,37 @@ int main()
 
 		//Нахождение нужного курса
 		string old_kind_of_currency = "";
-		string new_kind_of_currency = "";
 		double rate = 0;
 		for (int i = 0; i < old_currency_choice; i++) {
 			//USD
 			if (old_currency_choice == 1) {
 				rate = USD[new_currency_choice - 1];
-				old_kind_of_currency = "Долларов США";
+				old_kind_of_currency = "долларов США";
 			}
 			//BYN
 			if (old_currency_choice == 2) {
 				rate = BYN[new_currency_choice - 1];
-				old_kind_of_currency = "Белорусских рублей";
+				old_kind_of_currency = "белорусских рублей";
 			}
 			//EUR
 			if (old_currency_choice == 3) {
 				rate = EUR[new_currency_choice - 1];
-				old_kind_of_currency = "Евро";
+				old_kind_of_currency = "евро";
 			}
 			//RUB
 			if (old_currency_choice == 4) {
 				rate = RUB[new_currency_choice - 1];
-				old_kind_of_currency = "Российских рублей";
+				old_kind_of_currency = "российских рублей";
 			}
 		}
 
 		//Тип выводимой валюты
-		if (new_currency_choice == 1) {
-			new_kind_of_currency = "Долларов США.";
+		string kinds[4]{ "Долларов США.", "Белорусских рублей.", "Евро.", "Российских рублей." };
+		string new_kind_of_currency = "";
+		for (int i = 0; i < new_currency_choice; i++) {
+			new_kind_of_currency = kinds[new_currency_choice - 1];
 		}
-		else if (new_currency_choice == 2) {
-			new_kind_of_currency = "Белорусских рублей.";
-		}
-		else if (new_currency_choice == 3) {
-			new_kind_of_currency = "Евро.";
-		}
-		else if (new_currency_choice == 4) {
-			new_kind_of_currency = "Российских рублей.";
-		}
+		
 
 		//Ввод количества обмениваемой валюты
 		cout << "Введите количество " << old_kind_of_currency << ", которое хотите обменять : ";
@@ -89,12 +82,12 @@ int main()
 		//Перезапуск программы
 		cout << endl << "Хотите продолжить?" << endl;
 		cout << "Введите да или нет: ";
-		string choice_str = "да";
+		string choice_str = "";
 		cin >> choice_str;
-		if (choice_str == "да") {
+		if (choice_str == "да" || choice_str == "Да") {
 			choice = true;
 		}
-		else if (choice_str == "нет") {
+		else if (choice_str == "нет" || choice_str == "Нет") {
 			choice = false;
 			cout << "Спасибо за использование нашего обменника!" << endl;
 		}
