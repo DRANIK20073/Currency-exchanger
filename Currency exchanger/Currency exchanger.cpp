@@ -4,7 +4,7 @@
 #include <cstdio>
 using namespace std;
 
-int main()
+int main() 
 {
 	setlocale(0, " ");
 	SetConsoleCP(1251);
@@ -67,7 +67,7 @@ int main()
 		for (int i = 0; i < new_currency_choice; i++) {
 			new_kind_of_currency = kinds[new_currency_choice - 1];
 		}
-		
+
 		//Ввод количества обмениваемой валюты
 		cout << "Введите количество " << old_kind_of_currency << ", которое хотите обменять : ";
 		double amount_old_value = 0;
