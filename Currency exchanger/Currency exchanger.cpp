@@ -68,7 +68,6 @@ int main()
 			new_kind_of_currency = kinds[new_currency_choice - 1];
 		}
 		
-
 		//Ввод количества обмениваемой валюты
 		cout << "Введите количество " << old_kind_of_currency << ", которое хотите обменять : ";
 		double amount_old_value = 0;
